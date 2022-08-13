@@ -1,5 +1,5 @@
 <script>
-	import CommandPalette from "@actus/svelte/dist/";
+	import CommandPalette from "./Command.svelte";
 
 	export let placeholder;
 	export let currentTheme;
@@ -7,8 +7,8 @@
 	export let toggleKey = "p";
 
 	let dragging = false;
-	let x = 0;
-	let y = 0;
+	let x = window.innerWidth / 2;
+	let y = window.innerHeight / 3;
 
 	$: theme = {
 		"--color": currentTheme.color,
@@ -19,7 +19,6 @@
 		"--active-result-title-color": currentTheme.activeResultTitleColor,
 		"--scale": currentTheme.scale,
 	};
-	$: console.log(placeholder);
 </script>
 
 <svelte:window
@@ -39,15 +38,18 @@
 	on:mousedown|preventDefault|stopPropagation={() => {
 		dragging = true;
 	}}
+	style="--x:{x}px; --y:{y}px;"
 >
 	<CommandPalette {commands} {placeholder} {theme} {toggleKey} />
 </nav>
 
 <style>
 	nav {
+		--x: 0;
+		--y: 0;
 		position: fixed;
-		top: 30%;
-		left: 50%;
+		top: var(--y);
+		left: var(--x);
 		transform: translateX(-50%);
 		z-index: 9999;
 	}

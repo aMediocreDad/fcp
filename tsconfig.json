@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"noEmit": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"lib": ["DOM", "ESNext"],
+		"types": ["node", "@league-of-foundry-developers/foundry-vtt-types"]
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "lib"]
+}

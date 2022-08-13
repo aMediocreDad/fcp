@@ -1,35 +1,56 @@
+import { SvelteComponent } from "svelte";
 import Palette from "./Palette.svelte";
-import { defineActions } from "svelte-command-palette";
 
-export interface Theme {
-	name: string;
-	color: string;
-	descriptionColor: string;
-	backgroundColor: string;
-	activeResultBackgroundColor: string;
-	activeResultDescriptionColor: string;
-	activeResultTitleColor: string;
-	scale: string;
+declare global {
+	interface LenientGlobalVariableTypes {
+		game: never;
+	}
+	interface Theme {
+		name: string;
+		color: string;
+		descriptionColor: string;
+		backgroundColor: string;
+		activeResultBackgroundColor: string;
+		activeResultDescriptionColor: string;
+		activeResultTitleColor: string;
+		scale: string;
+	}
+	interface CONFIG {
+		fcp: {
+			commandFns: {
+				[key: string]: (arg: unknown | never) => void | never;
+			};
+			commandManifests: string[];
+			themes: { [key: string]: Theme };
+			instance: SvelteComponent | null;
+		};
+	}
 }
 
-const t = (string) => game.i18n.localize(string);
+const t = (string: string) => game.i18n.localize(string);
+
+const fetchAndConcatenateConfig = async () => {
+	const config = await Promise.all(
+		CONFIG.fcp.commandManifests.map(async (manifest) => {
+			const { commands } = (await foundry.utils.fetchJsonWithTimeout(manifest)) as {
+				commands: Record<string, any>[];
+			};
+			return commands.map((command) => {
+				if (command.exec.match(/^(?:function\s?\([^\)]*\))|(?:\([^\)]*\)\s?=>)/))
+					command.exec = (0, eval)(command.exec);
+				else command.exec = CONFIG.fcp.commandFns[command.exec];
+				if (command.getMatchString) command.getMatchString = (0, eval)(command.getMatchString);
+				return command;
+			});
+		})
+	);
+	return config.flat();
+};
 
 Hooks.once("init", () => {
 	CONFIG.fcp = {
-		commands: [
-			{
-				id: "open-settings",
-				title: "Open Settings",
-				description: "Opens the settings menu",
-				exec: () => game.settings.sheet.render(true),
-			},
-			{
-				id: "open-macros",
-				title: "Open Macros",
-				description: "Opens the macros menu",
-				exec: () => ui.macros.renderPopout(true),
-			},
-		],
+		commandFns: {},
+		commandManifests: ["/modules/fcp/static/config/base.json"],
 		themes: {
 			default: {
 				name: "Default",
@@ -44,13 +65,14 @@ Hooks.once("init", () => {
 		},
 		instance: null,
 	};
+	Hooks.call("fcpInit", CONFIG.fcp);
 });
 
 Hooks.once("setup", () => {
-	const choices = Object.entries(CONFIG.fcp.themes).reduce((obj, [key, theme]: [string, Theme]) => {
-		obj[key] = theme.name;
+	const choices = Object.entries(CONFIG.fcp.themes).reduce((obj, [key, theme]) => {
+		obj[key] = (theme as Theme).name;
 		return obj;
-	}, {});
+	}, {} as Record<string, string>);
 
 	game.settings.register("fcp", "theme", {
 		name: t("FCP.Settings.Theme.Name"),
@@ -71,12 +93,12 @@ Hooks.once("setup", () => {
 	});
 });
 
-Hooks.once("ready", () => {
-	const commands = CONFIG?.fcp.commands;
-	const toggleKey = game.settings.get("fcp", "toggleKey");
+Hooks.once("ready", async () => {
+	const toggleKey = game.settings.get("fcp", "toggleKey") as string;
 	const placeholder = t("FCP.CommandPalette.Placeholder");
-	const currentThemeKey = game.settings.get("fcp", "theme");
+	const currentThemeKey = game.settings.get("fcp", "theme") as string;
 	const currentTheme = CONFIG.fcp.themes[currentThemeKey];
+	const commands = await fetchAndConcatenateConfig();
 
 	CONFIG.fcp.instance = new Palette({
 		target: document.body,

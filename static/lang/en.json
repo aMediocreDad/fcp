@@ -1,0 +1,15 @@
+{
+	"FCP": {
+		"CommandPalette": { "Placeholder": "Start typing to see available commands" },
+		"Settings": {
+			"Theme": {
+				"Name": "Theme",
+				"Description": "Theme to use"
+			},
+			"ToggleKey": {
+				"Name": "Toggle Key",
+				"Description": "The key that toggles the command palette"
+			}
+		}
+	}
+}

@@ -1,1 +1,64 @@
-{}
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "https://raw.githubusercontent.com/aMediocreDad/fcp/main/schema/commands.json?token=GHSAT0AAAAAABWPZW7G47SOBJCABOELGCI2YXX5SDA",
+	"type": "object",
+	"title": "Foundry Command Palette Commands",
+	"description": "Schema for registering commands in the Foundry Command Palette.",
+	"properties": {
+		"$schema": {
+			"type": "string",
+			"title": "Schema",
+			"description": "Pointer to the schema against which this document should be validated."
+		},
+		"commands": {
+			"type": "array",
+			"title": "Commands",
+			"description": "Array of commands to register in the Foundry Command Palette.",
+			"items": {
+				"type": "object",
+				"title": "Command",
+				"properties": {
+					"id": {
+						"type": "string",
+						"title": "Id",
+						"description": "Unique id of the command. E.g. `open-settings\", `open-macros`"
+					},
+					"title": {
+						"type": "string",
+						"title": "Title",
+						"description": "Title of the command. E.g. `Open Settings`, `Open Macros`"
+					},
+					"description": {
+						"type": "string",
+						"title": "Description",
+						"description": "Description of the command. E.g. `Opens the settings window`"
+					},
+					"exec": {
+						"type": "string",
+						"title": "Exec",
+						"description": "Command to execute when the command is clicked. Or unique id of the command to execute. The Id will be used to look up the command in the `CONFIG.fcp.commandFns` object. E.g. `(name) => game.actors.getName(name).sheet.render(true)`, `openMacros`"
+					},
+					"getMatchString": {
+						"type": "string",
+						"title": "Get String Match",
+						"description": "(Optional): Function to get the string to match against when searching for the command. If not provided, the title will be used. E.g. `(string) => string.toLowerCase()`"
+					},
+					"requiredArgs": {
+						"type": "array",
+						"title": "Required Args",
+						"description": "(Optional): Arguments required for the command.",
+						"items": {
+							"type": "string",
+							"title": "Argument",
+							"description": "Argument required for the command. E.g. `actor-name`, `macro-id`"
+						}
+					}
+				},
+				"uniqueItems": true,
+				"required": ["id", "title", "description", "exec"],
+				"additionalProperties": false
+			}
+		}
+	},
+	"additionalProperties": false
+}

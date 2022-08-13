@@ -3,7 +3,7 @@
 	"private": true,
 	"version": "0.1.0",
 	"description": "",
-	"main": "lib/index.js",
+	"type": "module",
 	"scripts": {
 		"bundle": "NODE_ENV=production npx tsx esbuild.ts",
 		"dev": "npx tsx esbuild.ts"
@@ -12,7 +12,6 @@
 	"author": "",
 	"license": "MIT",
 	"devDependencies": {
-		"@actus/svelte": "2.3.2",
 		"esbuild": "^0.15.2",
 		"esbuild-svelte": "^0.7.1",
 		"svelte": "^3.49.0",
@@ -23,5 +22,10 @@
 		"patchedDependencies": {
 			"@actus/svelte@2.3.2": "patches/@actus__svelte@2.3.2.patch"
 		}
+	},
+	"optionalDependencies": {
+		"@actus/svelte": "^2.3.2",
+		"@league-of-foundry-developers/foundry-vtt-types": "^9.269.0",
+		"@types/node": "^18.7.3"
 	}
 }

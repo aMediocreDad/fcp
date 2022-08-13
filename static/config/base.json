@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/commands.json",
+	"commands": [
+		{
+			"id": "open-settings",
+			"title": "Open Settings",
+			"description": "Opens the settings menu",
+			"exec": "() => game.settings.sheet.render(true)"
+		},
+		{
+			"id": "open-macros",
+			"title": "Open Macros",
+			"description": "Opens the macros menu",
+			"exec": "() => ui.macros.renderPopout(true)"
+		},
+		{
+			"id": "open-character-sheet",
+			"title": "Find and open Character Sheet",
+			"description": "Finds an actor given -name <name>, and opens its sheet. E.g. -name \"John Doe\"",
+			"exec": "(cmd , [_, { name }]) => game.actors.getName(name)?.sheet.render(true)",
+			"requiredArgs": ["name"]
+		},
+		{
+			"id": "open-character-sheet-2",
+			"title": "Find and open Character Sheet",
+			"description": "Search 'actor: <name>' and open the sheet of that actor.",
+			"exec": "(cmd , parsed) => game.actors.getName(parsed[0].replace(/^actor:\\s*/, ''))?.sheet.render(true)",
+			"getMatchString": "input => /^actor:.*$/.test(input[0]) ? input[0] : ''"
+		}
+	]
+}
