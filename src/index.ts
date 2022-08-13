@@ -83,18 +83,26 @@ Hooks.once("setup", () => {
 		choices,
 		default: "Default",
 	});
-	game.settings.register("fcp", "toggleKey", {
+	game.keybindings.register("fcp", "toggleCommandPalette", {
 		name: t("FCP.Settings.ToggleKey.Name"),
 		hint: t("FCP.Settings.ToggleKey.Description"),
-		scope: "client",
-		config: true,
-		type: String,
-		default: "p",
+		editable: [
+			{
+				key: "p",
+			},
+		],
+		onDown: () => {
+			if (!CONFIG.fcp.instance) return;
+			CONFIG.fcp.instance.toggle();
+		},
+		onUp: () => {},
+		restricted: false,
+		precedence: CONST.KEYBINDING_PRECEDENCE.PRIORITY,
 	});
 });
 
 Hooks.once("ready", async () => {
-	const toggleKey = game.settings.get("fcp", "toggleKey") as string;
+	const toggleKey = game.keybindings.get("fcp", "toggleCommandPalette")[0].key;
 	const placeholder = t("FCP.CommandPalette.Placeholder");
 	const currentThemeKey = game.settings.get("fcp", "theme") as string;
 	const currentTheme = CONFIG.fcp.themes[currentThemeKey];

@@ -213,6 +213,7 @@
 				use:focus
 				value={$selectionService.context.input}
 				on:input|preventDefault={changed}
+				on:click={(ev) => focus(ev.currentTarget)}
 				type="text"
 				{placeholder}
 			/>

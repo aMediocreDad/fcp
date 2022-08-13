@@ -1,11 +1,11 @@
 import { build } from "esbuild";
 import svelte from "esbuild-svelte";
-import { Dir, opendirSync } from "fs";
+import { Dir, exists, existsSync, opendirSync } from "fs";
 import { copyFile, mkdir, rm } from "fs/promises";
 
 const PROD = process.env.NODE_ENV === "production";
 
-await rm("./lib", { recursive: true });
+if (existsSync("./lib")) await rm("./lib", { recursive: true });
 
 build({
 	entryPoints: ["./src/index.ts"],

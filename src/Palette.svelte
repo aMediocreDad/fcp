@@ -1,14 +1,22 @@
 <script>
 	import CommandPalette from "./Command.svelte";
 
+	// We want to use Foundry's Keybindings
+	const toggleKey = "__";
+
 	export let placeholder;
 	export let currentTheme;
 	export let commands;
-	export let toggleKey = "p";
 
 	let dragging = false;
 	let x = window.innerWidth / 2;
 	let y = window.innerHeight / 3;
+
+	// This lets us use Foundry's native keybindings
+	let palette;
+	export const toggle = () => {
+		if (palette) palette.toggle();
+	};
 
 	$: theme = {
 		"--color": currentTheme.color,
@@ -40,7 +48,7 @@
 	}}
 	style="--x:{x}px; --y:{y}px;"
 >
-	<CommandPalette {commands} {placeholder} {theme} {toggleKey} />
+	<CommandPalette {commands} {placeholder} {theme} {toggleKey} bind:this={palette} />
 </nav>
 
 <style>
