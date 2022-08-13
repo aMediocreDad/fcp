@@ -1,0 +1,23 @@
+{
+	"id": "fcp",
+	"title": "Foundry Command Palette",
+	"description": "A programmable command palette for the Foundry VTT.",
+	"authors": [
+		{
+			"name": "aMediocreDev"
+		}
+	],
+	"version": "0.1.0",
+	"compatibility": {
+		"minimum": "10",
+		"verified": "10"
+	},
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lib/lang/en.json"
+		}
+	],
+	"scripts": ["lib/index.js"]
+}
