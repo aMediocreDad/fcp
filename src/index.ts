@@ -50,7 +50,7 @@ const fetchAndConcatenateConfig = async () => {
 Hooks.once("init", () => {
 	CONFIG.fcp = {
 		commandFns: {},
-		commandManifests: ["/modules/fcp/static/config/base.json"],
+		commandManifests: ["/modules/fcp/lib/config/base.json"],
 		themes: {
 			default: {
 				name: "Default",
