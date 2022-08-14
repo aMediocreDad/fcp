@@ -8,8 +8,9 @@
 			"name": "Filip Ambrosius"
 		}
 	],
-	"version": "0.2.0",
-	"minimumCompatibleVersion": "9",
+	"version": "0.2.1",
+	"minimumCoreVersion": "9",
+	"compatibleCoreVersion": "9",
 	"compatibility": {
 		"minimum": "9",
 		"verified": "10"

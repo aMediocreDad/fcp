@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/aMediocreDad/fcp/compare/v0.2.0...v0.2.1) (2022-08-14)
+
+
+### Bug Fixes
+
+* Path to base config ([26999c8](https://github.com/aMediocreDad/fcp/commit/26999c87cf0e6e3f409897df4a95869b5874da29))
+
 ### 0.2.0 (2022-08-13)
 
 
