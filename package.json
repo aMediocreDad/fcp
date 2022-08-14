@@ -6,15 +6,18 @@
 	"type": "module",
 	"scripts": {
 		"bundle": "NODE_ENV=production npx tsx esbuild.ts",
-		"dev": "npx tsx esbuild.ts"
+		"dev": "npx tsx esbuild.ts",
+		"publish": "npx tsx tools/publish.ts"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "aMediocreDad",
 	"license": "MIT",
 	"devDependencies": {
+		"@changesets/changelog-github": "^0.4.6",
 		"@changesets/cli": "^2.24.3",
 		"esbuild": "^0.15.2",
 		"esbuild-svelte": "^0.7.1",
+		"execa": "^6.1.0",
 		"svelte": "^3.49.0",
 		"tsx": "^3.8.2",
 		"typescript": "^4.7.4"

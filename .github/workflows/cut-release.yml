@@ -20,13 +20,6 @@ jobs:
         run: pnpm i
       - name: Build Project
         run: pnpm run bundle
-      - name: Update module version
-        uses: microsoft/variable-substitution@v1
-        with:
-          files: "module.json"
-        env:
-          version: ${{ github.ref_name }}
-          download: https://github.com/${{github.repository}}/releases/download/${{ github.ref_name }}/module.zip
       - name: Zip Project
         run: zip -r module.zip lib module.json LICENSE README.md
       - name: Create Release
