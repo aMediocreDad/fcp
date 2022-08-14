@@ -12,6 +12,7 @@
 	"author": "",
 	"license": "MIT",
 	"devDependencies": {
+		"@changesets/cli": "^2.24.3",
 		"esbuild": "^0.15.2",
 		"esbuild-svelte": "^0.7.1",
 		"svelte": "^3.49.0",

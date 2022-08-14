@@ -13,7 +13,7 @@ build({
 	bundle: true,
 	target: "esnext",
 	format: "iife",
-	sourcemap: PROD ? false : "inline",
+	sourcemap: PROD ? true : "inline",
 	minify: PROD,
 	watch: !PROD,
 	plugins: [

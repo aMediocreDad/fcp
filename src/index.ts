@@ -102,7 +102,6 @@ Hooks.once("setup", () => {
 });
 
 Hooks.once("ready", async () => {
-	const toggleKey = game.keybindings.get("fcp", "toggleCommandPalette")[0].key;
 	const placeholder = t("FCP.CommandPalette.Placeholder");
 	const currentThemeKey = (game.settings.get("fcp", "theme") as string) || "default";
 	const currentTheme = CONFIG.fcp.themes[currentThemeKey];
