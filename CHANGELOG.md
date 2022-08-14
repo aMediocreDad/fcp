@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/aMediocreDad/fcp/compare/v0.2.1...v0.2.2) (2022-08-14)
+
+
+### Bug Fixes
+
+* Correct download url manifest ([11526a3](https://github.com/aMediocreDad/fcp/commit/11526a3eba32f051ef9290740e2a6b15bf3640e0))
+* Theme setting not initializing correctly ([e7b6749](https://github.com/aMediocreDad/fcp/commit/e7b67490f772784808c7cde722d18331915fbb0e))
+
 ### [0.2.1](https://github.com/aMediocreDad/fcp/compare/v0.2.0...v0.2.1) (2022-08-14)
 
 
