@@ -26,6 +26,20 @@
 			"description": "Search 'actor: <name>' and open the sheet of that actor.",
 			"exec": "(cmd , parsed) => game.actors.getName(parsed[0].replace(/^actor:\\s*/, ''))?.sheet.render(true)",
 			"getMatchString": "input => /^actor:.*$/.test(input[0]) ? input[0] : ''"
+		},
+		{
+			"id": "open-item-sheet",
+			"title": "Find and open Item Sheet",
+			"description": "Finds an item given -name <name>, and opens its sheet. E.g. -name \"John Doe\"",
+			"exec": "(cmd , [_, { name }]) => game.items.getName(name)?.sheet.render(true)",
+			"requiredArgs": ["name"]
+		},
+		{
+			"id": "open-item-sheet-2",
+			"title": "Find and open Item Sheet",
+			"description": "Search 'item: <name>' and open the sheet of that actor.",
+			"exec": "(cmd , parsed) => game.items.getName(parsed[0].replace(/^item:\\s*/, ''))?.sheet.render(true)",
+			"getMatchString": "input => /^item:.*$/.test(input[0]) ? input[0] : ''"
 		}
 	]
 }
