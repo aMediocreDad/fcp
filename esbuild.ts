@@ -14,8 +14,8 @@ build({
 	target: "esnext",
 	format: "iife",
 	sourcemap: PROD ? false : "inline",
+	minify: PROD,
 	watch: !PROD,
-	minify: !PROD,
 	plugins: [
 		svelte({
 			compilerOptions: {
