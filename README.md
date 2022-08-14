@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/amediocredad/fcp/blob/main/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/amediocredad/fcp?style=flat-square"/></a>
+    <img alt="License: MIT" src="https://img.shields.io/github/license/aMediocreDad/fcp?style=flat-square"/></a>
   <a href="https://github.com/amediocredad/fcp/releases/latest" target="_blank"><img alt="system version" src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Famediocredad%2Ffcp%2Fmain%2Fmodule.json&label=Version&query=$.version&colorB=blue&style=flat-square"/></a>
   <a href="https://foundryvtt.com" target="_blank">
     <img src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Famediocredad%2Ffcp%2Fmain%2Fmodule.json&label=Foundry&query=$.minimumCoreVersion&colorB=blue&style=flat-square" alt="foundry-compatibility-version"/></a>
