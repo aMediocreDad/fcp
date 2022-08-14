@@ -88,7 +88,7 @@ Hooks.once("setup", () => {
 		hint: t("FCP.Settings.ToggleKey.Description"),
 		editable: [
 			{
-				key: "p",
+				key: "KeyP",
 			},
 		],
 		onDown: () => {
@@ -113,7 +113,6 @@ Hooks.once("ready", async () => {
 		props: {
 			commands,
 			currentTheme,
-			toggleKey,
 			placeholder,
 		},
 	});
