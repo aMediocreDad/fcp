@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.2.4](https://github.com/aMediocreDad/fcp/compare/v0.2.3...v0.2.4) (2022-08-14)
 
+### Other
+
+* Add Package Jam flag to module.json
+
 ### [0.2.3](https://github.com/aMediocreDad/fcp/compare/v0.2.2...v0.2.3) (2022-08-14)
 
 

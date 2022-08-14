@@ -8,7 +8,7 @@
 			"name": "Filip Ambrosius"
 		}
 	],
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"minimumCoreVersion": "9",
 	"compatibleCoreVersion": "9",
 	"compatibility": {
@@ -23,6 +23,11 @@
 		}
 	],
 	"scripts": ["lib/index.js"],
+	"flags": {
+		"fvttdevleague": {
+			"package-jam": 2022
+		}
+	},
 	"url": "https://github.com/aMediocreDad/fcp",
 	"readme": "https://raw.githubusercontent.com/aMediocreDad/fcp/main/README.md",
 	"license": "https://raw.githubusercontent.com/aMediocreDad/fcp/main/LICENSE",
