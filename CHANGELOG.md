@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/aMediocreDad/fcp/compare/v0.2.2...v0.2.3) (2022-08-14)
+
+
+### Bug Fixes
+
+* Correct keybinding keyname ([b747f0b](https://github.com/aMediocreDad/fcp/commit/b747f0ba0d86b49cfa56b95fbcd2c2b5dfb7d08c))
+
 ### [0.2.2](https://github.com/aMediocreDad/fcp/compare/v0.2.1...v0.2.2) (2022-08-14)
 
 
