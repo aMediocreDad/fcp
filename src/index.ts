@@ -53,7 +53,7 @@ Hooks.once("init", () => {
 		commandManifests: ["/modules/fcp/lib/config/base.json"],
 		themes: {
 			default: {
-				name: "Default",
+				name: "Foundry",
 				color: "rgba(212, 208, 199, 1.00)",
 				descriptionColor: "rgba(212, 208, 199, 1.00)",
 				backgroundColor: "rgba(36, 36, 36, 1.00)",
@@ -81,7 +81,7 @@ Hooks.once("setup", () => {
 		config: true,
 		type: String,
 		choices,
-		default: "Default",
+		default: "default",
 	});
 	game.keybindings.register("fcp", "toggleCommandPalette", {
 		name: t("FCP.Settings.ToggleKey.Name"),
@@ -103,8 +103,8 @@ Hooks.once("setup", () => {
 
 Hooks.once("ready", async () => {
 	const placeholder = t("FCP.CommandPalette.Placeholder");
-	const currentThemeKey = (game.settings.get("fcp", "theme") as string) || "default";
-	const currentTheme = CONFIG.fcp.themes[currentThemeKey];
+	const currentThemeKey = game.settings.get("fcp", "theme") as string;
+	const currentTheme = CONFIG.fcp.themes[currentThemeKey] || CONFIG.fcp.themes.default;
 	const commands = await fetchAndConcatenateConfig();
 
 	CONFIG.fcp.instance = new Palette({
