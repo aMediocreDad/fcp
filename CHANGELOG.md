@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- [`e4f37d2`](https://github.com/aMediocreDad/fcp/commit/e4f37d2e482f5dfee01f9cf12a5f2578c33dbe34) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Add documentation and readjust initialization timing to make customization easier
+
 ## 0.2.6
 
 ### Patch Changes
