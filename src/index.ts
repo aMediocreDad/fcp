@@ -82,7 +82,7 @@ Hooks.once("init", async () => {
 		},
 		themes: {
 			default: {
-				name: t("FCP.Settings.Themes.DefaultTheme"),
+				name: t("FCP.Settings.Theme.DefaultTheme"),
 				color: "rgba(212, 208, 199, 1.00)",
 				descriptionColor: "rgba(212, 208, 199, 1.00)",
 				backgroundColor: "rgba(36, 36, 36, 1.00)",
