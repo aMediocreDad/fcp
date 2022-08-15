@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.6
+
+### Patch Changes
+
+- [`2fba796`](https://github.com/aMediocreDad/fcp/commit/2fba796afcca422b957ff1d41fcdf8262c335ab2) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Set correct default theme key when first initializing
+
 ## 0.2.5
 
 ### Patch Changes
