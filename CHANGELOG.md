@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1
+
+### Patch Changes
+
+- [`aa200f4`](https://github.com/aMediocreDad/fcp/commit/aa200f45ac1e66029922597fca5c51ff29905bdc) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fix translation string for default theme in settings
+
 ## 0.3.0
 
 ### Minor Changes
