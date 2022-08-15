@@ -30,7 +30,7 @@
 		{
 			"id": "open-item-sheet",
 			"title": "Find and open Item Sheet",
-			"description": "Finds an item given -name <name>, and opens its sheet. E.g. -name \"John Doe\"",
+			"description": "Finds an item given -name <name>, and opens its sheet. E.g. -name \"Excalibur\"",
 			"exec": "(cmd , [_, { name }]) => game.items.getName(name)?.sheet.render(true)",
 			"requiredArgs": ["name"]
 		},

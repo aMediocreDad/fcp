@@ -4,7 +4,8 @@
 		"Settings": {
 			"Theme": {
 				"Name": "Theme",
-				"Description": "Theme to use"
+				"Description": "Theme to use",
+				"DefaultTheme": "Foundry"
 			},
 			"ToggleKey": {
 				"Name": "Toggle Key",

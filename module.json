@@ -22,12 +22,13 @@
 			"path": "lib/lang/en.json"
 		}
 	],
-	"scripts": [
-		"lib/index.js"
-	],
+	"scripts": ["lib/index.js"],
 	"flags": {
 		"fvttdevleague": {
 			"package-jam": 2022
+		},
+		"fcp": {
+			"commands": ["lib/config/base.json"]
 		}
 	},
 	"url": "https://github.com/aMediocreDad/fcp",
