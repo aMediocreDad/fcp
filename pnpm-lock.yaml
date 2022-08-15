@@ -19,11 +19,11 @@ specifiers:
   typescript: ^4.7.4
 
 optionalDependencies:
-  '@actus/svelte': 2.3.2_e4hlk43h5batxwkjbymm4rouue
   '@league-of-foundry-developers/foundry-vtt-types': 9.269.0
   '@types/node': 18.7.3
 
 devDependencies:
+  '@actus/svelte': 2.3.2_e4hlk43h5batxwkjbymm4rouue
   '@changesets/changelog-github': 0.4.6
   '@changesets/cli': 2.24.3
   esbuild: 0.15.2
@@ -40,16 +40,14 @@ packages:
     dependencies:
       nearley: 2.20.1
       xstate: 4.33.1
-    dev: false
-    optional: true
+    dev: true
 
   /@actus/svelte/2.3.2_e4hlk43h5batxwkjbymm4rouue:
     resolution: {integrity: sha512-EikwL0aSbRfzaYQAmwWjaj/XEMUpd6apaccEL9jrgPByccb72sZ00y0IK6Ete+3iCSdUwlOMC/rqllHcMkCNPw==}
     requiresBuild: true
     dependencies:
       '@actus/core': 2.3.2
-    dev: false
-    optional: true
+    dev: true
     patched: true
 
   /@babel/code-frame/7.18.6:
@@ -931,8 +929,7 @@ packages:
 
   /commander/2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
-    dev: false
-    optional: true
+    dev: true
 
   /cross-spawn/5.1.0:
     resolution: {integrity: sha512-pTgQJ5KC0d2hcY8eyL1IzlBPYjTkyH72XRZPnLyKus2mBfNjQs3klqbJU2VILqZryAZUt9JOb3h/mWMy23/f5A==}
@@ -1031,8 +1028,7 @@ packages:
 
   /discontinuous-range/1.0.0:
     resolution: {integrity: sha512-c68LpLbO+7kP/b1Hr1qs8/BJ09F5khZGTxqxZuhzxpmwJKOgRFHJWIb9/KmqnqHhLdO55aOxFH/EGBvUQbL/RQ==}
-    dev: false
-    optional: true
+    dev: true
 
   /dotenv/8.6.0:
     resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
@@ -2156,8 +2152,7 @@ packages:
 
   /moo/0.5.1:
     resolution: {integrity: sha512-I1mnb5xn4fO80BH9BLcF0yLypy2UKl+Cb01Fu0hJRkJjlCRtxZMWkTdAtDd5ZqCOxtCkhmRwyI57vWT+1iZ67w==}
-    dev: false
-    optional: true
+    dev: true
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
@@ -2172,8 +2167,7 @@ packages:
       moo: 0.5.1
       railroad-diagrams: 1.0.0
       randexp: 0.4.6
-    dev: false
-    optional: true
+    dev: true
 
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
@@ -2453,8 +2447,7 @@ packages:
 
   /railroad-diagrams/1.0.0:
     resolution: {integrity: sha512-cz93DjNeLY0idrCNOH6PviZGRN9GJhsdm9hpn1YCS879fj4W+x5IFJhhkRZcwVgMmFF7R82UA/7Oh+R8lLZg6A==}
-    dev: false
-    optional: true
+    dev: true
 
   /randexp/0.4.6:
     resolution: {integrity: sha512-80WNmd9DA0tmZrw9qQa62GPPWfuXJknrmVmLcxvq4uZBdYqb1wYoKTmnlGUchvVWe0XiLupYkBoXVOxz3C8DYQ==}
@@ -2462,8 +2455,7 @@ packages:
     dependencies:
       discontinuous-range: 1.0.0
       ret: 0.1.15
-    dev: false
-    optional: true
+    dev: true
 
   /read-pkg-up/7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
@@ -2549,8 +2541,7 @@ packages:
   /ret/0.1.15:
     resolution: {integrity: sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==}
     engines: {node: '>=0.12'}
-    dev: false
-    optional: true
+    dev: true
 
   /reusify/1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
@@ -2996,8 +2987,7 @@ packages:
 
   /xstate/4.33.1:
     resolution: {integrity: sha512-C9A3esyOuw/xRpwQUkG2e1Gjd8sZYh42t66COq8DaJgaaLOqmE8zWRH1ouL9mHtQ3WV//uT5Ki3ijHGSUdLiww==}
-    dev: false
-    optional: true
+    dev: true
 
   /y18n/4.0.3:
     resolution: {integrity: sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ==}
