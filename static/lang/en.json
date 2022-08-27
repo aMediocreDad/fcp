@@ -1,6 +1,26 @@
 {
 	"FCP": {
 		"CommandPalette": { "Placeholder": "Start typing to see available commands" },
+		"Commands": {
+			"CharacterSheet": {
+				"Open": "Find and open Character Sheet",
+				"OpenHint": "Finds an actor given -name <name>, and opens its sheet. E.g. -name \"John Doe\"",
+				"OpenHint2": "Search 'actor: <name>' and open the sheet of that actor."
+			},
+			"ItemSheet": {
+				"Open": "Find and open Item Sheet",
+				"OpenHint": "Finds an item given -name <name>, and opens its sheet. E.g. -name \"Excalibur\"",
+				"OpenHint2": "Search 'item: <name>' and open the sheet of that item."
+			},
+			"Settings": {
+				"Open": "Open Settings",
+				"OpenHint": "Shortcut to open the settings menu"
+			},
+			"Macros": {
+				"Open": "Open Macros",
+				"OpenHint": "Shortcut to open the macros menu"
+			}
+		},
 		"Settings": {
 			"Theme": {
 				"Name": "Theme",

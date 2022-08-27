@@ -52,6 +52,50 @@
 							"title": "Argument",
 							"description": "Argument required for the command. E.g. `actor-name`, `macro-id`"
 						}
+					},
+					"keybinding": {
+						"type": "object",
+						"title": "Keybinding",
+						"description": "(Optional): Configure a keybinding",
+						"properties": {
+							"key": {
+								"type": "string",
+								"title": "Key",
+								"description": "Keybinding for the command. E.g. `KeyL`"
+							},
+							"modifiers": {
+								"type": "array",
+								"title": "Modifiers",
+								"description": "An array of modifiers. E.g. `[\"alt\"]`",
+								"items": {
+									"type": "string"
+								},
+								"uniqueItems": true,
+								"minItems": 1
+							},
+							"name": {
+								"type": "string",
+								"title": "Name",
+								"description": "Translation string of the keybinding. E.g. `SETTINGS.Open`"
+							},
+							"hint": {
+								"type": "string",
+								"title": "Hint",
+								"description": "Translation string of the keybinding hint. E.g. `SETTINGS.OpenHint`"
+							},
+							"restricted": {
+								"type": "boolean",
+								"title": "Restricted",
+								"description": "Whether editing the keybinding is restricted. E.g. `true`"
+							},
+							"precedence": {
+								"type": "number",
+								"title": "Precedence",
+								"description": "Priority of the keybinding. E.g. `1`, where 0 is the highest priority",
+								"examples": [0, 1, 2]
+							}
+						},
+						"required": ["key", "name", "hint"]
 					}
 				},
 				"uniqueItems": true,
