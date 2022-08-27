@@ -72,6 +72,41 @@ const fetchAndConcatenateConfig = async () => {
 	return config.flat();
 };
 
+const registerKeybinding = ({
+	id,
+	key,
+	modifiers,
+	fn,
+	name,
+	hint,
+	restricted,
+	precedence,
+}: {
+	id: string;
+	key: string;
+	modifiers: string[];
+	fn: () => void;
+	name: string;
+	hint: string;
+	restricted: boolean;
+	precedence: number;
+}) => {
+	game.keybindings.register("fcp", id, {
+		name: t(name),
+		hint: t(hint),
+		editable: [
+			{
+				key,
+				modifiers,
+			},
+		],
+		onDown: fn,
+		onUp: () => {},
+		restricted,
+		precedence,
+	});
+};
+
 Hooks.once("init", async () => {
 	CONFIG.fcp = {
 		commandFns: {},
@@ -98,23 +133,26 @@ Hooks.once("init", async () => {
 	// Call hook for programmatic edits
 	await Hooks.call("fcpInit", CONFIG.fcp);
 
-	game.keybindings.register("fcp", "toggleCommandPalette", {
-		name: t("FCP.Settings.ToggleKey.Name"),
-		hint: t("FCP.Settings.ToggleKey.Description"),
-		editable: [
-			{
-				key: CONFIG.fcp.keybinding.key,
-				modifiers: CONFIG.fcp.keybinding.modifiers,
-			},
-		],
-		onDown: () => {
+	registerKeybinding({
+		id: "toggleCommandPalette",
+		key: CONFIG.fcp.keybinding.key,
+		modifiers: CONFIG.fcp.keybinding.modifiers,
+		fn: () => {
 			if (!CONFIG.fcp.instance) return;
 			CONFIG.fcp.instance.toggle();
 		},
-		onUp: () => {},
+		name: "FCP.Settings.ToggleKey.Name",
+		hint: "FCP.Settings.ToggleKey.Description",
 		restricted: false,
 		precedence: CONST.KEYBINDING_PRECEDENCE.PRIORITY,
 	});
+
+	for (const { keybinding, exec, id } of CONFIG.fcp.commands)
+		if (keybinding) {
+			keybinding.id = id;
+			keybinding.fn = exec;
+			registerKeybinding(keybinding);
+		}
 });
 
 Hooks.once("ready", async () => {

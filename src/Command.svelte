@@ -197,6 +197,19 @@
 	function execEvent(id) {
 		return { type: "EXEC", id };
 	}
+
+	function getKeybinding(id) {
+		try {
+			const binding = game.keybindings.get("fcp", id)?.[0]
+			return KeybindingsConfig._humanizeBinding(binding)
+		} catch (error) {
+			return undefined
+		}
+	}
+
+	function t (key) {
+		return game.i18n.localize(key)
+	}
 </script>
 
 {#if $selectionService.matches("open")}
@@ -220,7 +233,9 @@
 		</div>
 		{#if results.length}
 			<div class="results" transition:slide={{ duration: 150 }}>
+				<!-- svelte-ignore missing-declaration -->
 				{#each results as result, resultIndex}
+					{@const keybinding = getKeybinding(result.id)}
 					<div
 						data-testid={`test-id-${resultIndex}`}
 						class:active={$selectionService.context.selectedId === result.id}
@@ -229,8 +244,13 @@
 						on:focus={() => selectionService.send(selectEvent(result.id))}
 						class="result"
 					>
-						{renderTitle(result.title)}
-						<span class="result-description">{renderDescription(result.description)}</span>
+						<div>
+							{renderTitle(t(result.title))}
+							<span class="result-description">{renderDescription(t(result.description))}</span>
+						</div>
+						{#if keybinding}
+							<span class="result-keybinding">{keybinding}</span>
+						{/if}
 					</div>
 				{/each}
 			</div>
@@ -259,6 +279,9 @@
 		padding: 0.6rem;
 		background-color: var(--background-color, rgba(36, 36, 36, 1));
 		font-size: 0.9rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 	.result.active {
 		background-color: var(--active-result-background-color, rgba(64, 64, 64, 1));
@@ -272,6 +295,15 @@
 	}
 	.result.active .result-description {
 		color: var(--active-result-description-color, rgba(255, 255, 255, 1));
+	}
+	.result-keybinding {
+		padding: 0 4px;
+		min-width: 24px;
+		background: rgba(255, 255, 255, 0.25);
+		border: 1px solid var(--color-border-light-2);
+		border-radius: 5px;
+		box-shadow: 1px 1px #444;
+		text-align: center;
 	}
 	.results {
 		width: 400px;

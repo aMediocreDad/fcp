@@ -3,41 +3,53 @@
 	"commands": [
 		{
 			"id": "open-settings",
-			"title": "Open Settings",
-			"description": "Opens the settings menu",
-			"exec": "() => game.settings.sheet.render(true)"
+			"title": "FCP.Commands.Settings.Open",
+			"description": "FCP.Commands.Settings.OpenHint",
+			"exec": "() => game.settings.sheet.render(true)",
+			"keybinding": {
+				"key": "KeyS",
+				"modifiers": ["Alt"],
+				"name": "FCP.Commands.Settings.Open",
+				"hint": "FCP.Commands.Settings.OpenHint"
+			}
 		},
 		{
 			"id": "open-macros",
-			"title": "Open Macros",
-			"description": "Opens the macros menu",
-			"exec": "() => ui.macros.renderPopout(true)"
+			"title": "FCP.Commands.Macros.Open",
+			"description": "FCP.Commands.Macros.OpenHint",
+			"exec": "() => ui.macros.renderPopout(true)",
+			"keybinding": {
+				"key": "KeyM",
+				"modifiers": ["Alt"],
+				"name": "FCP.Commands.Macros.Open",
+				"hint": "FCP.Commands.Macros.OpenHint"
+			}
 		},
 		{
 			"id": "open-character-sheet",
-			"title": "Find and open Character Sheet",
-			"description": "Finds an actor given -name <name>, and opens its sheet. E.g. -name \"John Doe\"",
+			"title": "FCP.Commands.CharacterSheet.Open",
+			"description": "FCP.Commands.CharacterSheet.OpenHint",
 			"exec": "(cmd , [_, { name }]) => game.actors.getName(name)?.sheet.render(true)",
 			"requiredArgs": ["name"]
 		},
 		{
 			"id": "open-character-sheet-2",
-			"title": "Find and open Character Sheet",
-			"description": "Search 'actor: <name>' and open the sheet of that actor.",
+			"title": "FCP.Commands.CharacterSheet.Open",
+			"description": "FCP.Commands.CharacterSheet.OpenHint2",
 			"exec": "(cmd , parsed) => game.actors.getName(parsed[0].replace(/^actor:\\s*/, ''))?.sheet.render(true)",
 			"getMatchString": "input => /^actor:.*$/.test(input[0]) ? input[0] : ''"
 		},
 		{
 			"id": "open-item-sheet",
-			"title": "Find and open Item Sheet",
-			"description": "Finds an item given -name <name>, and opens its sheet. E.g. -name \"Excalibur\"",
+			"title": "FCP.Commands.ItemSheet.Open",
+			"description": "FCP.Commands.ItemSheet.OpenHint",
 			"exec": "(cmd , [_, { name }]) => game.items.getName(name)?.sheet.render(true)",
 			"requiredArgs": ["name"]
 		},
 		{
 			"id": "open-item-sheet-2",
-			"title": "Find and open Item Sheet",
-			"description": "Search 'item: <name>' and open the sheet of that actor.",
+			"title": "FCP.Commands.ItemSheet.Open",
+			"description": "FCP.Commands.ItemSheet.OpenHint2",
 			"exec": "(cmd , parsed) => game.items.getName(parsed[0].replace(/^item:\\s*/, ''))?.sheet.render(true)",
 			"getMatchString": "input => /^item:.*$/.test(input[0]) ? input[0] : ''"
 		}
