@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- [`0ec7faa`](https://github.com/aMediocreDad/fcp/commit/0ec7faab2e8eeb6e406a2ad0ecf3e2c7bc4dfb1f) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Add keybindings to commands
+
 ## 0.3.1
 
 ### Patch Changes
